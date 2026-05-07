@@ -23,7 +23,7 @@ loader or resolver.
   loader's driver-shim materialization (path, package name, product,
   imports). Pure struct of strings; no L2/L3 deps.
 - `Manifest.Configuration` — aggregates manifest-load inputs as a
-  reusable struct (`packageRoot`, `filename`, `valueName`,
+  reusable struct (`root`, `filename`, `binding`,
   `dependencies`, optional `toolchain`).
 
 ## Layer position

@@ -19,19 +19,19 @@ extension Manifest {
         /// Filesystem path to the consumer package's root.
         ///
         /// The eval project lands under
-        /// `\(packageRoot)/.build/.\(filename).eval/`.
-        public let packageRoot: Swift.String
+        /// `\(root)/.build/.\(filename).eval/`.
+        public let root: Swift.String
 
         /// Filename of the manifest at the consumer package's root,
         /// e.g., `"Lint.swift"` or `"Package.swift"`.
         public let filename: Swift.String
 
-        /// File-scope identifier the manifest declares whose value
-        /// is the Output type.
+        /// File-scope binding the manifest declares whose value is
+        /// the Output type.
         ///
         /// For example, `"manifest"` if the consumer's `Lint.swift`
         /// declares `let manifest: LintManifest = ...`.
-        public let valueName: Swift.String
+        public let binding: Swift.String
 
         /// Packages whose products the driver compiles against.
         public let dependencies: [Dependency]
@@ -44,15 +44,15 @@ extension Manifest {
         public let toolchain: Swift.String?
 
         public init(
-            packageRoot: Swift.String,
+            root: Swift.String,
             filename: Swift.String,
-            valueName: Swift.String,
+            binding: Swift.String,
             dependencies: [Dependency],
             toolchain: Swift.String? = nil
         ) {
-            self.packageRoot = packageRoot
+            self.root = root
             self.filename = filename
-            self.valueName = valueName
+            self.binding = binding
             self.dependencies = dependencies
             self.toolchain = toolchain
         }

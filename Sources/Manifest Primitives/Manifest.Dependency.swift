@@ -31,7 +31,7 @@ extension Manifest {
 
         /// SwiftPM package name (the `name:` field of
         /// `Package.swift`).
-        public let packageName: Swift.String
+        public let name: Swift.String
 
         /// Product name within the package.
         public let product: Swift.String
@@ -44,12 +44,12 @@ extension Manifest {
 
         public init(
             path: Swift.String,
-            packageName: Swift.String,
+            name: Swift.String,
             product: Swift.String,
             imports: [Swift.String]
         ) {
             self.path = path
-            self.packageName = packageName
+            self.name = name
             self.product = product
             self.imports = imports
         }

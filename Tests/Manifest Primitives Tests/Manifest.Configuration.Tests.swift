@@ -23,21 +23,21 @@ extension Manifest.Configuration.Test.Construction {
     @Test
     func `Configuration constructs with all parameters`() {
         let configuration = Manifest.Configuration(
-            packageRoot: "/tmp/example",
+            root: "/tmp/example",
             filename: "Lint.swift",
-            valueName: "manifest",
+            binding: "manifest",
             dependencies: [
                 Manifest.Dependency(
                     path: "/tmp/some-package",
-                    packageName: "some-package",
+                    name: "some-package",
                     product: "Some Product",
                     imports: ["Some_Product"]
                 )
             ]
         )
-        #expect(configuration.packageRoot == "/tmp/example")
+        #expect(configuration.root == "/tmp/example")
         #expect(configuration.filename == "Lint.swift")
-        #expect(configuration.valueName == "manifest")
+        #expect(configuration.binding == "manifest")
         #expect(configuration.dependencies.count == 1)
         #expect(configuration.toolchain == nil)
     }
@@ -45,9 +45,9 @@ extension Manifest.Configuration.Test.Construction {
     @Test
     func `Configuration accepts an explicit toolchain override`() {
         let configuration = Manifest.Configuration(
-            packageRoot: "/tmp/example",
+            root: "/tmp/example",
             filename: "Lint.swift",
-            valueName: "manifest",
+            binding: "manifest",
             dependencies: [],
             toolchain: "/usr/bin/swift"
         )
