@@ -51,7 +51,7 @@ dependencies: [
 |---|---|
 | `Manifest` | Top-level namespace declaration. |
 | `Manifest.Parent.scan(in:)` | Pure byte-level scanner for `// parent: <URL>` directives in a manifest's leading comment lines. Returns raw URL bytes; consumers handle scheme validation and URI construction. |
-| `Manifest.Dependency` | A SwiftPM dependency description used by a higher-layer driver shim's eval project. Pure struct of strings — `path`, `packageName`, `product`, `imports`. |
+| `Manifest.Dependency` | A SwiftPM dependency description used by a higher-layer driver shim's eval project. Pure struct of strings — `path`, `name`, `product`, `imports`. |
 | `Manifest.Configuration` | Aggregates the inputs needed to load a manifest (root path, filename, binding name, dependencies, optional toolchain) as a single value the consumer can store and reuse. |
 
 Each type is a passive value: `Sendable`, no I/O, no global state, no
