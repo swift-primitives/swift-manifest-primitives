@@ -24,6 +24,7 @@ let package = Package(
     ],
     products: [
         .library(name: "Manifest Primitives", targets: ["Manifest Primitives"]),
+        .library(name: "Manifest Primitives Test Support", targets: ["Manifest Primitives Test Support"]),
     ],
     dependencies: [
         .package(path: "../swift-ascii-primitives"),
@@ -37,10 +38,18 @@ let package = Package(
                 .product(name: "Parser Literal Primitives", package: "swift-parser-primitives"),
             ]
         ),
+        .target(
+            name: "Manifest Primitives Test Support",
+            dependencies: [
+                "Manifest Primitives",
+            ],
+            path: "Tests/Support"
+        ),
         .testTarget(
             name: "Manifest Primitives Tests",
             dependencies: [
                 "Manifest Primitives",
+                "Manifest Primitives Test Support",
             ]
         )
     ],
