@@ -76,7 +76,7 @@ extension Manifest.Parent {
         }
 
         do {
-            try (Parser.Literal<Parser.Input.Bytes>("// parent:")).parse(&input)
+            try (Byte.Literal.Parser<Parser.Input.Bytes>("// parent:")).parse(&input)
         } catch {
             return nil
         }
