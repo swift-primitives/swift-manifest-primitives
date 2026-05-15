@@ -28,14 +28,14 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../swift-ascii-primitives"),
-        .package(path: "../swift-parser-primitives"),
+        .package(path: "../swift-byte-parser-primitives"),
     ],
     targets: [
         .target(
             name: "Manifest Primitives",
             dependencies: [
                 .product(name: "ASCII Primitives", package: "swift-ascii-primitives"),
-                .product(name: "Parser Literal Primitives", package: "swift-parser-primitives"),
+                .product(name: "Byte Parser Primitives", package: "swift-byte-parser-primitives"),
             ]
         ),
         .target(

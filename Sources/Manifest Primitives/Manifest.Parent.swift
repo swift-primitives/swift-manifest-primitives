@@ -10,7 +10,7 @@
 // ===----------------------------------------------------------------------===//
 
 internal import ASCII_Primitives
-internal import Parser_Literal_Primitives
+internal import Byte_Parser_Primitives
 
 extension Manifest {
     /// The parent of a manifest in an inheritance chain.
