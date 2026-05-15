@@ -67,7 +67,7 @@ extension Manifest.Parent {
     private static func parse(
         _ line: Swift.ArraySlice<Swift.UInt8>
     ) -> [Swift.UInt8]? {
-        var input = Parser.Input.Bytes(Swift.Array(line))
+        var input = Byte.Input(Swift.Array(line))
 
         while let first = input.first,
               first == .ascii.space || first == .ascii.tab
@@ -76,7 +76,7 @@ extension Manifest.Parent {
         }
 
         do {
-            try (Byte.Literal.Parser<Parser.Input.Bytes>("// parent:")).parse(&input)
+            try (Byte.Literal.Parser<Byte.Input>("// parent:")).parse(&input)
         } catch {
             return nil
         }
