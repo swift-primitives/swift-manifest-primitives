@@ -93,7 +93,7 @@ extension Manifest.Parent {
             if first == .ascii.space || first == .ascii.tab || first == .ascii.cr {
                 break
             }
-            urlBytes.append(first)
+            urlBytes.append(first.underlying)
             _ = try? input.advance()
         }
         return urlBytes.isEmpty ? nil : urlBytes
