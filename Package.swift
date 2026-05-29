@@ -27,8 +27,8 @@ let package = Package(
         .library(name: "Manifest Primitives Test Support", targets: ["Manifest Primitives Test Support"]),
     ],
     dependencies: [
-        .package(path: "../swift-ascii-primitives"),
-        .package(path: "../swift-byte-parser-primitives"),
+        .package(url: "https://github.com/swift-primitives/swift-ascii-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-byte-parser-primitives.git", branch: "main"),
     ],
     targets: [
         .target(
