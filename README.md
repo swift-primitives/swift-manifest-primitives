@@ -32,9 +32,11 @@ composition are all higher-layer concerns.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-primitives/swift-manifest-primitives.git", from: "0.1.0"),
+    .package(url: "https://github.com/swift-primitives/swift-manifest-primitives.git", branch: "main"),
 ]
 ```
+
+> Pre-1.0: no version tags yet. APIs may change; pin a commit for reproducible builds.
 
 ```swift
 .target(
