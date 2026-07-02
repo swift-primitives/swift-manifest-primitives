@@ -43,6 +43,18 @@ extension Manifest {
         /// SHOULD pass an absolute path to a known toolchain.
         public let toolchain: Swift.String?
 
+        /// Creates a fully-specified loader configuration.
+        ///
+        /// - Parameters:
+        ///   - root: Filesystem path to the consumer package's root.
+        ///   - filename: Filename of the manifest at the consumer
+        ///     package's root.
+        ///   - binding: File-scope binding the manifest declares whose
+        ///     value is the Output type.
+        ///   - dependencies: Packages whose products the driver compiles
+        ///     against.
+        ///   - toolchain: Optional override for the swift toolchain binary
+        ///     path; `nil` (default) uses `/usr/bin/env swift`.
         public init(
             root: Swift.String,
             filename: Swift.String,

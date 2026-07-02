@@ -44,6 +44,16 @@ extension Manifest {
         /// "Linter Primitives" → "Linter_Primitives").
         public let imports: [Swift.String]
 
+        /// Creates a dependency entry.
+        ///
+        /// - Parameters:
+        ///   - path: Filesystem path to the package directory, resolved
+        ///     relative to the eval project's `Package.swift`.
+        ///   - name: SwiftPM package name (the `name:` field of
+        ///     `Package.swift`).
+        ///   - product: Product name within the package.
+        ///   - imports: Module names to emit `import` statements for in
+        ///     the driver shim.
         public init(
             path: Swift.String,
             name: Swift.String,
