@@ -72,6 +72,7 @@ extension Manifest.Parent {
         while let first = input.first,
             first == .ascii.space || first == .ascii.tab
         {
+            // swiftlint:disable:next no_try_optional - reason: whitespace-skip loop — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
             _ = try? input.advance()
         }
 
@@ -84,6 +85,7 @@ extension Manifest.Parent {
         while let first = input.first,
             first == .ascii.space || first == .ascii.tab
         {
+            // swiftlint:disable:next no_try_optional - reason: whitespace-skip loop — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
             _ = try? input.advance()
         }
 
@@ -94,6 +96,7 @@ extension Manifest.Parent {
                 break
             }
             urlBytes.append(first.underlying)
+            // swiftlint:disable:next no_try_optional - reason: byte-scan advance — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
             _ = try? input.advance()
         }
         return urlBytes.isEmpty ? nil : urlBytes
