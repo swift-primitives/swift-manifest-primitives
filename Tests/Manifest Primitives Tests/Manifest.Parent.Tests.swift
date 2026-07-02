@@ -9,8 +9,8 @@
 //
 // ===----------------------------------------------------------------------===//
 
-import Testing
 import Manifest_Primitives
+import Testing
 
 extension Manifest.Parent {
     @Suite
@@ -23,19 +23,19 @@ extension Manifest.Parent.Test.Scan {
     @Test
     func `Absent directive returns nil`() {
         let content = """
-        import Linter
+            import Linter
 
-        let manifest = Lint.Manifest(enabledRuleIDs: [])
-        """
+            let manifest = Lint.Manifest(enabledRuleIDs: [])
+            """
         #expect(Manifest.Parent.scan(in: content) == nil)
     }
 
     @Test
     func `https URL is returned as bytes`() {
         let content = """
-        // parent: https://raw.githubusercontent.com/swift-institute/.github/main/Lint.swift
-        import Linter
-        """
+            // parent: https://raw.githubusercontent.com/swift-institute/.github/main/Lint.swift
+            import Linter
+            """
         let expected = Swift.Array(
             "https://raw.githubusercontent.com/swift-institute/.github/main/Lint.swift".utf8
         )
@@ -110,9 +110,9 @@ extension Manifest.Parent.Test.Scan {
     @Test
     func `First valid directive wins when multiple are present`() {
         let content = """
-        // parent: https://first.example.com/Lint.swift
-        // parent: https://second.example.com/Lint.swift
-        """
+            // parent: https://first.example.com/Lint.swift
+            // parent: https://second.example.com/Lint.swift
+            """
         let expected = Swift.Array("https://first.example.com/Lint.swift".utf8)
         #expect(Manifest.Parent.scan(in: content) == expected)
     }

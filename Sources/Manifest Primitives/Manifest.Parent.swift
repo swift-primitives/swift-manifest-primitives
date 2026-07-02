@@ -70,7 +70,7 @@ extension Manifest.Parent {
         var input = Byte.Input(Swift.Array(line))
 
         while let first = input.first,
-              first == .ascii.space || first == .ascii.tab
+            first == .ascii.space || first == .ascii.tab
         {
             _ = try? input.advance()
         }
@@ -82,7 +82,7 @@ extension Manifest.Parent {
         }
 
         while let first = input.first,
-              first == .ascii.space || first == .ascii.tab
+            first == .ascii.space || first == .ascii.tab
         {
             _ = try? input.advance()
         }

@@ -37,7 +37,9 @@ extension Manifest {
         public let product: Swift.String
 
         /// Module names to emit `import` statements for in the
-        /// driver shim. Spaces in product names become underscores
+        /// driver shim.
+        ///
+        /// Spaces in product names become underscores
         /// in module names per Swift's normalization (e.g.,
         /// "Linter Primitives" → "Linter_Primitives").
         public let imports: [Swift.String]

@@ -9,8 +9,8 @@
 //
 // ===----------------------------------------------------------------------===//
 
-import Testing
 import Manifest_Primitives
+import Testing
 
 extension Manifest.Configuration {
     @Suite
