@@ -72,11 +72,15 @@ extension Manifest.Parent {
         while let first = input.first,
             first == .ascii.space || first == .ascii.tab
         {
-            // swiftlint:disable:next no_try_optional - reason: whitespace-skip loop — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
-            _ = try? input.advance()
+            // The while-let guard proves input is non-empty, so advance()
+            // cannot fail here ([IMPL-108] escape hatch); discard is local
+            // and visible.
+            do throws(Input_Primitives.Input.Stream.Error) {
+                _ = try input.advance()
+            } catch {}
         }
 
-        do {
+        do throws(Byte.Literal.Parser<Byte.Input>.Failure) {
             try (Byte.Literal.Parser<Byte.Input>("// parent:")).parse(&input)
         } catch {
             return nil
@@ -85,8 +89,12 @@ extension Manifest.Parent {
         while let first = input.first,
             first == .ascii.space || first == .ascii.tab
         {
-            // swiftlint:disable:next no_try_optional - reason: whitespace-skip loop — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
-            _ = try? input.advance()
+            // The while-let guard proves input is non-empty, so advance()
+            // cannot fail here ([IMPL-108] escape hatch); discard is local
+            // and visible.
+            do throws(Input_Primitives.Input.Stream.Error) {
+                _ = try input.advance()
+            } catch {}
         }
 
         var urlBytes: [Swift.UInt8] = []
@@ -96,8 +104,12 @@ extension Manifest.Parent {
                 break
             }
             urlBytes.append(first.underlying)
-            // swiftlint:disable:next no_try_optional - reason: byte-scan advance — the while-let guard proves input is non-empty, so advance() cannot fail here ([IMPL-108] escape hatch)
-            _ = try? input.advance()
+            // The while-let guard proves input is non-empty, so advance()
+            // cannot fail here ([IMPL-108] escape hatch); discard is local
+            // and visible.
+            do throws(Input_Primitives.Input.Stream.Error) {
+                _ = try input.advance()
+            } catch {}
         }
         return urlBytes.isEmpty ? nil : urlBytes
     }
