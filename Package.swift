@@ -1,4 +1,4 @@
-// swift-tools-version: 6.3.3
+// swift-tools-version: 6.4
 
 // ===----------------------------------------------------------------------===//
 //
@@ -16,19 +16,28 @@ import PackageDescription
 let package = Package(
     name: "swift-manifest-primitives",
     platforms: [
-        .macOS("27"),
-        .iOS("27"),
-        .tvOS("27"),
-        .watchOS("27"),
-        .visionOS("27")
+        .macOS(.v27),
+        .iOS(.v27),
+        .tvOS(.v27),
+        .watchOS(.v27),
+        .visionOS(.v27),
     ],
     products: [
         .library(name: "Manifest Primitives", targets: ["Manifest Primitives"]),
-        .library(name: "Manifest Primitives Test Support", targets: ["Manifest Primitives Test Support"]),
+        .library(
+            name: "Manifest Primitives Test Support",
+            targets: ["Manifest Primitives Test Support"]
+        ),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-primitives/swift-ascii-primitives.git", branch: "main"),
-        .package(url: "https://github.com/swift-primitives/swift-byte-parser-primitives.git", branch: "main"),
+        .package(
+            url: "https://github.com/swift-primitives/swift-ascii-primitives.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-primitives/swift-byte-parser-primitives.git",
+            branch: "main"
+        ),
     ],
     targets: [
         .target(
@@ -41,7 +50,7 @@ let package = Package(
         .target(
             name: "Manifest Primitives Test Support",
             dependencies: [
-                "Manifest Primitives",
+                "Manifest Primitives"
             ],
             path: "Tests/Support"
         ),
@@ -51,7 +60,7 @@ let package = Package(
                 "Manifest Primitives",
                 "Manifest Primitives Test Support",
             ]
-        )
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
